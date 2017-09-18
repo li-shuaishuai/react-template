@@ -26,16 +26,17 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader",
-                    options: {
-                        modules: true
-                    }
-                }, {
-                    loader: "postcss-loader"
-                }]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [{
+                        loader: "css-loader",
+                        options: {
+                            modules: true
+                        }
+                    }, {
+                        loader: "postcss-loader"
+                    }],
+                })
             },
         ]
     },
@@ -50,6 +51,6 @@ module.exports = {
         //压缩JS代码
         new webpack.optimize.UglifyJsPlugin(),
         //分离CSS和JS文件
-        // new ExtractTextPlugin("style/[name]-[hash].css")
+        new ExtractTextPlugin("[name]-[hash].css")
     ],
 };
