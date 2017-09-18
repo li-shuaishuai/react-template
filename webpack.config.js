@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/main.jsx'), //入口文件
+  entry: path.resolve(__dirname, 'src/index.jsx'), //入口文件
   output: {
     path: path.resolve(__dirname, './build'),//打包后的文件存放的地方
     filename: "bundle.js"//打包后输出文件的文件名
@@ -18,7 +18,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      components: path.resolve(__dirname, 'src/components/')
+      components: path.resolve(__dirname, 'src/components/'),
+      common: path.resolve(__dirname, 'src/common/')
     }
   },
   module: {
@@ -48,11 +49,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin('Created by Li Shuaishuai GitHub:https://github.com/li-shuaishuai'),
+    new webpack.BannerPlugin('Created by Li Shuaishuai. GitHub:https://github.com/li-shuaishuai'),
     // html 模板插件
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.tmpl.html'
     }),
-    new webpack.HotModuleReplacementPlugin()//热加载插件
+    //热加载插件
+    new webpack.HotModuleReplacementPlugin()
   ],
 };
