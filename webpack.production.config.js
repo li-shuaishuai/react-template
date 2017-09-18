@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.jsx'), //入口文件
@@ -18,29 +18,34 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /(\.jsx|\.js)$/,
-                use: {
-                    loader: "babel-loader"
-                },
-                exclude: /node_modules/
+            test: /(\.jsx|\.js)$/,
+            use: {
+                loader: "babel-loader"
             },
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [{
-                        loader: "css-loader",
-                        options: {
-                            modules: true
-                        }
-                    }, {
-                        loader: "postcss-loader"
-                    }],
-                })
-            },
+            exclude: /node_modules/
+        },
+        {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [{
+                    loader: "css-loader",
+                    options: {
+                        modules: true
+                    }
+                }, {
+                    loader: "postcss-loader"
+                }],
+            })
+        },
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
         new webpack.BannerPlugin('Created by Li Shuaishuai. GitHub:https://github.com/li-shuaishuai'),
         // html 模板插件
         new HtmlWebpackPlugin({
