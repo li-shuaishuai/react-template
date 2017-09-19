@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --open",
-    "dist": "rd/s/q dist && webpack --config ./webpack.production.config.js --progress"
+    "build": "rd/s/q dist && webpack --config ./webpack.production.config.js --progress"
   },
   "author": "lishuaishuai",
   "license": "ISC",

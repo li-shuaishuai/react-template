@@ -12,7 +12,7 @@ module.exports = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, './dist/js'), //打包后的文件存放的地方
+        path: path.resolve(__dirname, './dist'), //打包后的文件存放的地方
         filename: '[name].[hash].js' //打包后输出文件的文件名
     },
     resolve: {
