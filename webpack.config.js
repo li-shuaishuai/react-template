@@ -24,38 +24,47 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /(\.jsx|\.js)$/,
-        use: {
-          loader: 'babel-loader'
-        },
-        exclude: /node_modules/
+      test: /(\.jsx|\.js)$/,
+      use: {
+        loader: 'babel-loader'
       },
-      {
-        test: /\.css$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
+      exclude: /node_modules/
+    },
+    {
+      test: /\.css$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader',
+        options: {
+          modules: true
+        }
+      }, {
+        loader: 'postcss-loader'
+      }]
+    },
+    {
+      test: /\.less$/,
+      use: [
+        'style-loader',
+        {
           loader: 'css-loader',
           options: {
             modules: true
           }
-        }, {
-          loader: 'postcss-loader'
-        }]
-      },
-      {
-        test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 8192
-          }
-        }]
-      }
+        },
+        'postcss-loader',
+        'less-loader']
+    },
+    {
+      test: /\.(png|jpg|gif)$/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }
+      }]
+    }
     ]
   },
   plugins: [
