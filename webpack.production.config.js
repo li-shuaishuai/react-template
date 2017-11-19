@@ -6,12 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     entry: {
         app: path.resolve(__dirname, 'app/index.jsx'), //入口文件
-        vendor: [
-            'react',
-            'react-dom',
-            'react-router',
-            'redux',
-        ]
     },
     output: {
         path: path.resolve(__dirname, './build'), //打包后的文件存放的地方
@@ -93,7 +87,7 @@ module.exports = {
         // 分离CSS和JS文件
         new ExtractTextPlugin('/css/[name].[hash].css'),
         // 提供公共代码
-        new webpack.optimize.CommonsChunkPlugin("common", "common.bundle.js"),
+        new webpack.optimize.CommonsChunkPlugin('common'),
         // supresses warnings, usually from module minification
         new webpack.optimize.UglifyJsPlugin({
             output: {
