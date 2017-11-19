@@ -5,21 +5,23 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        app: path.resolve(__dirname, 'src/index.jsx'), //入口文件
+        app: path.resolve(__dirname, 'app/index.jsx'), //入口文件
         vendor: [
             'react',
             'react-dom',
+            'react-router',
+            'redux',
         ]
     },
     output: {
-        path: path.resolve(__dirname, './dist'), //打包后的文件存放的地方
-        filename: '[name].[hash].js' //打包后输出文件的文件名
+        path: path.resolve(__dirname, './build'), //打包后的文件存放的地方
+        filename: '[name].[chunkhash:5].js' //打包后输出文件的文件名
     },
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            components: path.resolve(__dirname, 'src/components/'),
-            common: path.resolve(__dirname, 'src/common/')
+            components: path.resolve(__dirname, 'app/components/'),
+            common: path.resolve(__dirname, 'app/common/')
         }
     },
     module: {
@@ -82,21 +84,21 @@ module.exports = {
         new webpack.BannerPlugin('Created by Li Shuaishuai. GitHub:https://github.com/li-shuaishuai'),
         // html 模板插件
         new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.tmpl.html'
+            template: __dirname + '/app/index.tmpl.html'
         }),
-        //为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
-        //压缩JS代码
+        // 压缩JS代码
         new webpack.optimize.UglifyJsPlugin(),
-        //分离CSS和JS文件
+        // 分离CSS和JS文件
         new ExtractTextPlugin('/css/[name].[hash].css'),
         // 提供公共代码
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'manifest'],
-            filename: '/js/[name].[hash].js'
-        }),
-        //supresses warnings, usually from module minification
+        new webpack.optimize.CommonsChunkPlugin("common", "common.bundle.js"),
+        // supresses warnings, usually from module minification
         new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false, // 移除所有注释
+            },
             compress: {
                 warnings: false
             }
