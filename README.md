@@ -8,6 +8,16 @@
 
 ## Build Setup
 
+> 注意：此环境为macos下的配置，windows下需做如下修改
+
+```
+"scripts": {
+    "dev": "webpack-dev-server --progress --colors --open",
+    "build": "rrd/s/q build && webpack --config ./webpack.production.config.js --progress --colors"
+  }
+```
+
+
 ``` bash
 # install dependencies
 npm install
@@ -38,3 +48,5 @@ npm run build
 * "url-loader": 将图片文件转换为base64编码并载入浏览器能够减少http请求数
 * "webpack": "^3.6.0",
 * "webpack-dev-server": 是一个小型的Node.js Express服务器
+
+react-addons-pure-render-mixin: react性能优化工具

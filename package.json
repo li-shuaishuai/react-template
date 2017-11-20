@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --open",
-    "build": "rd/s/q build && webpack --config ./webpack.production.config.js --progress --colors"
+    "build": "rm -rf build && webpack --config ./webpack.production.config.js --progress --colors"
   },
   "author": "lishuaishuai",
   "license": "ISC",
   "dependencies": {
+    "es6-promise": "^4.1.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-addons-pure-render-mixin": "^15.6.2",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
