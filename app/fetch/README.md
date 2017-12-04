@@ -1,1 +1,1 @@
-get post 数据
+get post 封装及数据请求

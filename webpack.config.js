@@ -37,7 +37,7 @@ module.exports = {
       }, {
         loader: 'css-loader',
         options: {
-          modules: true
+          modules: false
         }
       }, {
         loader: 'postcss-loader'
@@ -50,14 +50,14 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            modules: true
+            modules: false
           }
         },
         'postcss-loader',
         'less-loader']
     },
     {
-      test: /\.(png|jpg|gif)$/,
+      test: /\.(png|jpg|gif|woff|woff2|svg|ttf|eot)$/,
       use: [{
         loader: 'url-loader',
         options: {
@@ -76,7 +76,8 @@ module.exports = {
     new webpack.BannerPlugin('Created by Li Shuaishuai. GitHub:https://github.com/li-shuaishuai'),
     // html 模板插件
     new HtmlWebpackPlugin({
-      template: __dirname + '/app/index.tmpl.html'
+      template: __dirname + '/app/index.tmpl.html',
+      filename: './index.html'
     }),
     //热加载插件
     new webpack.HotModuleReplacementPlugin()
