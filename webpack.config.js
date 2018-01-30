@@ -70,7 +70,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')    //定义编译环境
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)    //定义编译环境
       }
     }),
     new webpack.BannerPlugin('Created by Li Shuaishuai. GitHub:https://github.com/li-shuaishuai'),
