@@ -5,6 +5,16 @@
 
 ### 详细文章移步：http://www.lishuaishuai.com/nodejs/527.html
 
+> 注意：此环境为macos下的配置，windows下需做如下修改
+
+ ```
+  "scripts": {
+    "dev": "set NODE_ENV=dev && webpack-dev-server --progress --colors --open",
+    "build": " set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress --colors"
+  },
+ ```
+
+
 ## Build Setup
 
 ``` bash
