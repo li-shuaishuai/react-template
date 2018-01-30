@@ -37,7 +37,6 @@ npm run build
 * "url-loader": 将图片文件转换为base64编码并载入浏览器能够减少http请求数
 * "webpack": "^3.6.0",
 * "webpack-dev-server": 是一个小型的Node.js Express服务器
-* "npm-install-webpack-plugin": 自动安装npm缺少的依赖
 
 ## react相关
 

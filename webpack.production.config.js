@@ -43,7 +43,7 @@ module.exports = {
                 use: [{
                     loader: 'css-loader',
                     options: {
-                        modules: false,
+                        modules: true,
                         minimize: true
                     }
                 }, {
@@ -58,7 +58,7 @@ module.exports = {
                 use: [{
                     loader: 'css-loader',
                     options: {
-                        modules: false,
+                        modules: true,
                         minimize: true
                     }
                 }, {
