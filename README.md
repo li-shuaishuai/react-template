@@ -6,6 +6,8 @@
 * 具备热加载
 * 注释信息详细，方便开发者修改、添加个性化配置
 
+详细文章移步：http://www.lishuaishuai.com/nodejs/527.html[http://www.lishuaishuai.com/nodejs/527.html]
+
 ## Build Setup
 
 ``` bash
