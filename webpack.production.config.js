@@ -19,7 +19,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './build'), //打包后的文件存放的地方
-        filename: '[name].[chunkhash:5].js' //打包后输出文件的文件名
+        filename: './js/[name].[chunkhash:5].js' //打包后输出文件的文件名
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -99,10 +99,10 @@ module.exports = {
         // 压缩JS代码
         new webpack.optimize.UglifyJsPlugin(),
         // 分离CSS和JS文件
-        new ExtractTextPlugin('/css/[name].[hash].css'),
+        new ExtractTextPlugin('/css/[name].[chunkhash:5].css'),
         // 提供公共代码
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
+            names: ['vendor', 'manifest'],
             filename: './js/[name].[chunkhash:5].js'
         }),
         // supresses warnings, usually from module minification

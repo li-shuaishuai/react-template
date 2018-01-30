@@ -37,7 +37,7 @@ module.exports = {
       }, {
         loader: 'css-loader',
         options: {
-          modules: false
+          modules: true
         }
       }, {
         loader: 'postcss-loader'
@@ -50,7 +50,7 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            modules: false
+            modules: true
           }
         },
         'postcss-loader',
@@ -68,7 +68,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new NpmInstallPlugin(),// 自动安装缺少的依赖
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)    //定义编译环境
