@@ -38,4 +38,7 @@ npm run build
 * "webpack": "^3.6.0",
 * "webpack-dev-server": 是一个小型的Node.js Express服务器
 * "npm-install-webpack-plugin": 自动安装npm缺少的依赖
+
+## react相关
+
 * react-addons-pure-render-mixin: react性能优化工具
