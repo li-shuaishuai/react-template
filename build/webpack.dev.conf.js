@@ -1,5 +1,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseConfig = require('./webpack.base.conf.js')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 
@@ -14,6 +15,9 @@ module.exports = merge(baseConfig, {
     // hot: true
   },
   plugins: [
-    new DashboardPlugin()
+    new DashboardPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.tpl.html'
+    })
   ]
 })
