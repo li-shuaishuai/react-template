@@ -3,9 +3,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
-    filename: '[name].[hash:4].js',
+    filename: '[name].[hash:5].js',
     path: path.join(__dirname, './../', 'dist')
   },
   resolve: {
@@ -14,13 +14,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
@@ -32,7 +32,6 @@ module.exports = {
             options: {
               modules: true,
               localIdentName: "[name]-[local]-[hash:base64:5]",
-              sourceMap: true,
             }
           },
           { loader: 'postcss-loader' },
@@ -42,7 +41,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: 'file-loader',
-        exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.scss$/]
+        exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.scss$/, /\.css$/]
       },
       {
         test: /\.(woff|svg|eot|woff2|tff)$/,

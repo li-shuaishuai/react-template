@@ -6,7 +6,7 @@ const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = merge(baseConfig, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, './../', 'dist'),
     port: 8086,
