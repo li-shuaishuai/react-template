@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -12,9 +13,11 @@ module.exports = merge(baseConfig, {
     port: 8086,
     open: true,
     inline: true,
-    // hot: true
+    hot: true,
+    overlay: true
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.tpl.html'

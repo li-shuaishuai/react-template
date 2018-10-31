@@ -1,8 +1,8 @@
 import React from 'react'
 
-import * as styles from './hello.scss'
+import * as styles from './home.scss'
 
-export default class Hello extends React.Component {
+export default class Home extends React.Component {
   render() {
     return (
       <div className={styles.contianer}>

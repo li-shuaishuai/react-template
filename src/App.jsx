@@ -1,10 +1,16 @@
 import React from 'react'
-import Hello from './views/hello'
+import Home from './views/home'
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 class App extends React.Component {
   render() {
     return (
-      <Hello />
+      <div>
+        <Header />
+        <Home />
+        <Footer />
+      </div>
     )
   }
 }
