@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-import './common/styles/common.css'
+import 'normalize.css'
 
 ReactDOM.render(
   <App />,

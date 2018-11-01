@@ -1,6 +1,6 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   entry: './src/index.jsx',
@@ -25,13 +25,13 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          // { loader: "style-loader" },
+          // MiniCssExtractPlugin.loader,
+          { loader: "style-loader" },
           {
             loader: "css-loader",
             options: {
               modules: true,
-              localIdentName: "[name]-[local]-[hash:base64:5]",
+              localIdentName: "[name]_[local]-[hash:base64:5]",
             }
           },
           { loader: 'postcss-loader' },
@@ -50,9 +50,9 @@ module.exports = {
       from: './src/assets/',
       to: 'assets'
     }]),
-    new MiniCssExtractPlugin({
-      filename: "[name].[hash:5].css",
-      chunkFilename: "[id].css"
-    })
+    // new MiniCssExtractPlugin({
+    //   filename: "css/[name].[hash:5].css",
+    //   chunkFilename: "[id].css"
+    // })
   ]
 }

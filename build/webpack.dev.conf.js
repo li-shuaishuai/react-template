@@ -6,7 +6,7 @@ const baseConfig = require('./webpack.base.conf.js')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = merge(baseConfig, {
-  mode: 'development',
+  mode: 'production',
   devtool: 'eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, './../', 'dist'),
@@ -14,13 +14,16 @@ module.exports = merge(baseConfig, {
     open: true,
     inline: true,
     hot: true,
-    overlay: true
+    overlay: true // 在浏览器上全屏显示编译的errors或warnings
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.tpl.html'
+    }),
+    new webpack.DefinePlugin({
+      __DEV__: 'true'
     })
   ]
 })

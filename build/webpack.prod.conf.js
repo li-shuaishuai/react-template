@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -5,7 +6,10 @@ const baseConfig = require('./webpack.base.conf.js')
 
 
 module.exports = merge(baseConfig, {
-  mode: 'production',
+  mode: 'development',
+  optimization: {
+    minimize: true
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
@@ -16,5 +20,8 @@ module.exports = merge(baseConfig, {
         removeEmptyAttributes: true // 去除空属性
       },
     }),
+    new webpack.DefinePlugin({
+      __DEV__: 'false'
+    })
   ]
 })
