@@ -1,11 +1,12 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const NODE_ENV = process.env.NODE_ENV
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: path.join(__dirname, './../', 'src/index.jsx'),
   output: {
-    filename: '[name].[hash:5].js',
+    filename: './js/[name].[hash:5].js',
     path: path.join(__dirname, './../', 'dist')
   },
   resolve: {
@@ -20,13 +21,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.scss$/,
         use: [
-          // MiniCssExtractPlugin.loader,
-          { loader: "style-loader" },
+          NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -36,7 +36,8 @@ module.exports = {
           },
           { loader: 'postcss-loader' },
           { loader: "sass-loader" }
-        ]
+        ],
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif|jpeg|woff|woff2|svg|ttf|eot)$/,
@@ -47,12 +48,7 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([{
-      from: './src/assets/',
-      to: 'assets'
-    }]),
-    // new MiniCssExtractPlugin({
-    //   filename: "css/[name].[hash:5].css",
-    //   chunkFilename: "[id].css"
-    // })
-  ]
+      from: path.join(__dirname, './../', 'src/assets'),
+      to: path.join(__dirname, './../', 'dist/assets')
+    }])]
 }
