@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <div className={styles.contianer}>
-        <span>footer</span>
+        <span>© <a href="https://lishuaishuai.com">李帅帅空间</a></span>
       </div>
     )
   }

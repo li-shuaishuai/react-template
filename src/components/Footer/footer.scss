@@ -1,9 +1,12 @@
 .contianer {
   height: 60px;
   background-color: #20232a;
-  font-size: 20px;
+  font-size: 14px;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  a {
+    color: #fff;
+  }
 }
