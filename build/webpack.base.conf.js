@@ -6,7 +6,7 @@ const NODE_ENV = process.env.NODE_ENV
 module.exports = {
   entry: path.join(__dirname, './../', 'src/index.jsx'),
   output: {
-    filename: './js/[name].[hash:5].js',
+    filename: 'js/[name].[hash:5].js',
     path: path.join(__dirname, './../', 'dist')
   },
   resolve: {

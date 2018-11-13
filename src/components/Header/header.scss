@@ -2,8 +2,21 @@
   height: 60px;
   background-color: #20232a;
   font-size: 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center
+  line-height: 30px;
+  .navBox {
+    float: right;
+    padding: 15px;
+    .navLink {
+      margin-right: 15px;
+      cursor: pointer;
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color:#81d8f7
+      }
+      &.active {
+        color: #81d8f7
+      }
+    }
+  }
 }

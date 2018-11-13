@@ -6,8 +6,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const baseConfig = require('./webpack.base.conf.js')
-// const glob = require('glob')
-// const PurifyCSSPlugin = require("purifycss-webpack")
 const NODE_ENV = process.env.NODE_ENV
 
 const config = merge(baseConfig, {
@@ -41,10 +39,7 @@ const config = merge(baseConfig, {
         collapseWhitespace: true, // 去除空格
         removeEmptyAttributes: true // 去除空属性
       },
-    }),
-    // new PurifyCSSPlugin({
-    //   paths: glob.sync(path.join(__dirname, './../','src/*.html')),
-    // })
+    })
   ]
 })
 
