@@ -14,7 +14,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+      { 
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/
@@ -40,7 +40,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|jpeg|woff|woff2|svg|ttf|eot)$/,
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|svg|ttf|eot)$/,
         use: 'url-loader',
         exclude: /node_modules/
       }
@@ -49,6 +49,6 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{
       from: path.join(__dirname, './../', 'src/assets'),
-      to: path.join(__dirname, './../', 'dist/assets')
+      to: 'assets'
     }])]
 }

@@ -8,11 +8,11 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const baseConfig = require('./webpack.base.conf.js')
 // const glob = require('glob')
 // const PurifyCSSPlugin = require("purifycss-webpack")
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const NODE_ENV = process.env.NODE_ENV
 
-module.exports = merge(baseConfig, {
+const config = merge(baseConfig, {
   mode: NODE_ENV,
+  devtool: false,
   optimization: {
     minimize: true,
     splitChunks: {
@@ -42,11 +42,15 @@ module.exports = merge(baseConfig, {
         removeEmptyAttributes: true // 去除空属性
       },
     }),
-    new BundleAnalyzerPlugin({
-      
-    })
     // new PurifyCSSPlugin({
     //   paths: glob.sync(path.join(__dirname, './../','src/*.html')),
     // })
   ]
 })
+
+if(process.env.analyz) {
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  config.plugins.push(new BundleAnalyzerPlugin())
+}
+
+module.exports = config
