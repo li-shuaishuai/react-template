@@ -1,14 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
+import { updateTitle } from '../../actions/title'
 import * as styles from './home.scss'
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div className={styles.contianer}>
         <img className={styles.logo} src="../../assets/logo.svg" />
-        <p className={styles.title}>Hello World!</p>
-      </div>
+        <p onClick={() => updateTitle('欢迎使用react脚手架')} className={styles.title}>{this.props.title}</p>
+      </div >
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    title: state.title
+  }
+})(Home)
