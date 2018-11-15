@@ -1,22 +1,25 @@
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const NODE_ENV = process.env.NODE_ENV
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
-  entry: path.join(__dirname, './../', 'src/index.jsx'),
+  entry: resolve('src/index.jsx'),
   output: {
     filename: 'js/[name].[hash:5].js',
-    path: path.join(__dirname, './../', 'dist')
+    path: resolve('dist')
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
   module: {
     rules: [
-      { 
+      {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
@@ -40,15 +43,29 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|svg|ttf|eot)$/,
-        use: 'url-loader',
-        exclude: /node_modules/
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/img/[name].[hash:5].[ext]'
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/media/[name].[hash:5].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/fonts/[name].[hash:5].[ext]'
+        }
       }
     ]
-  },
-  plugins: [
-    new CopyWebpackPlugin([{
-      from: path.join(__dirname, './../', 'src/assets'),
-      to: 'assets'
-    }])]
+  }
 }

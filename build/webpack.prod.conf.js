@@ -1,5 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -27,6 +27,11 @@ const config = merge(baseConfig, {
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, './../')
     }),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../static'),
+      to: 'static',
+      ignore: ['.*']
+    }]),
     new MiniCssExtractPlugin({
       filename: "css/[name].[hash:5].css",
       chunkFilename: "[id].css"
@@ -38,12 +43,12 @@ const config = merge(baseConfig, {
         removeComments: true, // 移除注释
         collapseWhitespace: true, // 去除空格
         removeEmptyAttributes: true // 去除空属性
-      },
+      }
     })
   ]
 })
 
-if(process.env.analyz) {
+if (process.env.analyz) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   config.plugins.push(new BundleAnalyzerPlugin())
 }
