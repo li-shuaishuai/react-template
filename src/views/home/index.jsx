@@ -8,7 +8,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className={styles.contianer}>
-        <img className={styles.logo} src="../../assets/logo.svg" />
+        <img className={styles.logo} src={require('../../assets/logo.svg')} />
         <p onClick={() => updateTitle('欢迎使用react脚手架')} className={styles.title}>{this.props.title}</p>
       </div >
     )

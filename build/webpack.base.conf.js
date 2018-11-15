@@ -9,8 +9,9 @@ function resolve(dir) {
 module.exports = {
   entry: resolve('src/index.jsx'),
   output: {
+    path: resolve('dist'),
     filename: 'js/[name].[hash:5].js',
-    path: resolve('dist')
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
