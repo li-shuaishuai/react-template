@@ -5,12 +5,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const baseConfig = require('./webpack.base.conf.js')
-const NODE_ENV = process.env.NODE_ENV
+const baseWebpackConfig = require('./webpack.base.conf.js')
+const config = require('../config')
 
-const config = merge(baseConfig, {
-  mode: NODE_ENV,
-  devtool: false,
+const webpackConfig = merge(baseWebpackConfig, {
+  mode: config.build.mode,
+  devtool: config.build.sourceMap,
   optimization: {
     minimize: true,
     splitChunks: {
@@ -25,7 +25,7 @@ const config = merge(baseConfig, {
   },
   plugins: [
     new CleanWebpackPlugin(['dist'], {
-      root: path.join(__dirname, './../')
+      root: path.join(__dirname, '../')
     }),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../static'),
@@ -48,9 +48,9 @@ const config = merge(baseConfig, {
   ]
 })
 
-if (process.env.analyz) {
+if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  config.plugins.push(new BundleAnalyzerPlugin())
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-module.exports = config
+module.exports = webpackConfig
