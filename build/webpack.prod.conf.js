@@ -11,6 +11,12 @@ const config = require('../config')
 const webpackConfig = merge(baseWebpackConfig, {
   mode: config.build.mode,
   devtool: config.build.sourceMap,
+  output: {
+    path: config.build.assetsRoot,
+    filename: path.join(config.build.assetsSubDirectory, 'js/[name].[chunkhash:8].js'),
+    chunkFilename: path.join(config.build.assetsSubDirectory, 'js/[name].[chunkhash:8].chunk.js'),
+    publicPath: config.build.assetsPublicPath
+  },
   optimization: {
     minimize: true,
     splitChunks: {
@@ -34,8 +40,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       ignore: ['.*']
     }]),
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash:8].css',
-      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      filename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash:8].css'),
+      chunkFilename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash:8].chunk.css'),
     }),
     new OptimizeCssAssetsPlugin(),
     new HtmlWebpackPlugin({

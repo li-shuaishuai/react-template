@@ -1,5 +1,4 @@
 const webpack = require('webpack')
-const path = require('path')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.conf.js')
@@ -10,7 +9,7 @@ module.exports = merge(baseWebpackConfig, {
   mode: config.dev.mode,
   devtool: config.dev.sourceMap,
   devServer: {
-    contentBase: path.join(__dirname, '../dist'),
+    contentBase: config.build.assetsRoot,
     port: config.dev.port,
     open: config.dev.autoOpenBrowser,
     inline: true,

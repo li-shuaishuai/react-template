@@ -12,11 +12,9 @@ module.exports = {
   },
   dev: {
     mode: NODE_ENV,
+    sourceMap: 'source-map',
     port: 3001,
-    autoOpenBrowser: true,
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    sourceMap: 'eval-source-map',
+    autoOpenBrowser: true, // 自动打开浏览器
     overlay: true // 在浏览器上全屏显示编译的errors或warnings
   }
 }

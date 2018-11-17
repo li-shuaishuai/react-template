@@ -1,5 +1,6 @@
 const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const config = require('../config')
 const NODE_ENV = process.env.NODE_ENV
 
 function resolve(dir) {
@@ -9,10 +10,10 @@ function resolve(dir) {
 module.exports = {
   entry: resolve('src/index.jsx'),
   output: {
-    path: resolve('dist'),
-    filename: 'static/js/[name].[hash:8].js',
-    chunkFilename: 'static/js/[name].[hash:8].chunk.js',
-    publicPath: '/'
+    path: config.build.assetsRoot,
+    filename: path.join(config.build.assetsSubDirectory, 'js/[name].js'),
+    chunkFilename: path.join(config.build.assetsSubDirectory, 'js/[name].chunk.js'),
+    publicPath: config.build.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
@@ -36,7 +37,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: true,
-              localIdentName: "[name]_[local]-[hash:base64:5]",
+              localIdentName: "[name]_[local]-[hash:base64:8]",
             }
           },
           {
