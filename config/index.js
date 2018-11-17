@@ -12,7 +12,7 @@ module.exports = {
   },
   dev: {
     mode: NODE_ENV,
-    port: 8088,
+    port: 3001,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

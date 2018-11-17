@@ -10,7 +10,8 @@ module.exports = {
   entry: resolve('src/index.jsx'),
   output: {
     path: resolve('dist'),
-    filename: 'js/[name].[hash:5].js',
+    filename: 'static/js/[name].[hash:8].js',
+    chunkFilename: 'static/js/[name].[hash:8].chunk.js',
     publicPath: '/'
   },
   resolve: {
@@ -38,7 +39,21 @@ module.exports = {
               localIdentName: "[name]_[local]-[hash:base64:5]",
             }
           },
-          { loader: 'postcss-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                require('postcss-preset-env')({
+                  autoprefixer: {
+                    flexbox: 'no-2009',
+                  },
+                  stage: 3,
+                })
+              ]
+            }
+          },
           { loader: "sass-loader" }
         ],
         exclude: /node_modules/
@@ -48,7 +63,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:5].[ext]'
+          name: 'img/[name].[hash:8].[ext]'
         }
       },
       {
@@ -56,7 +71,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:5].[ext]'
+          name: 'static/media/[name].[hash:8].[ext]'
         }
       },
       {
@@ -64,7 +79,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/fonts/[name].[hash:5].[ext]'
+          name: 'static/fonts/[name].[hash:8].[ext]'
         }
       }
     ]

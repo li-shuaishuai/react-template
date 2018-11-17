@@ -21,7 +21,8 @@ const webpackConfig = merge(baseWebpackConfig, {
           chunks: 'all'
         }
       }
-    }
+    },
+    runtimeChunk: true
   },
   plugins: [
     new CleanWebpackPlugin(['dist'], {
@@ -33,8 +34,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       ignore: ['.*']
     }]),
     new MiniCssExtractPlugin({
-      filename: "css/[name].[hash:5].css",
-      chunkFilename: "[id].css"
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     }),
     new OptimizeCssAssetsPlugin(),
     new HtmlWebpackPlugin({
