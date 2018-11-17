@@ -1,1 +1,16 @@
-# 基于webpack3.x的react项目模板文件
+# react-template
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run start
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
