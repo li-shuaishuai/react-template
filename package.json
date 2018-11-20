@@ -1,5 +1,5 @@
 {
-  "name": "react-template",
+  "name": "{{name}}",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -41,6 +41,7 @@
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.1",
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^3.1.9",
@@ -52,8 +53,7 @@
     "react-dom": "^16.5.2",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1",
-    "webpack-bundle-analyzer": "^3.0.3"
+    "redux": "^4.0.1"
   },
   "browserslist": [
     ">1%",

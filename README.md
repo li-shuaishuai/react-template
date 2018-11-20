@@ -1,4 +1,4 @@
-# react-template
+# {{name}}
 
 ## Project setup
 ```
@@ -13,4 +13,9 @@ npm run start
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Visualize size of webpack output files with an interactive zoomable treemap
+```
+npm run analyz
 ```
