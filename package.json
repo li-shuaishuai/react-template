@@ -1,24 +1,12 @@
 {
   "name": "{{name}}",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js --progress",
     "analyz": "cross-env analyz=true npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/li-shuaishuai/react-template.git"
-  },
-  "keywords": [],
-  "author": "lishuaishuai",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/li-shuaishuai/react-template/issues"
-  },
-  "homepage": "https://github.com/li-shuaishuai/react-template#readme",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
