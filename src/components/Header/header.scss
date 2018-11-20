@@ -1,6 +1,7 @@
 .contianer {
   height: 60px;
   background-color: #20232a;
+  {{#if router}}
   font-size: 20px;
   line-height: 30px;
   .navBox {
@@ -19,4 +20,10 @@
       }
     }
   }
+  {{else}}
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  {{/if}}
 }

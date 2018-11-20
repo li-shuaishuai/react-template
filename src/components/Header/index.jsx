@@ -6,10 +6,14 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className={styles.contianer}>
+        {{#if router}}
         <div className={styles.navBox}>
           <NavLink exact className={styles.navLink} activeClassName={styles.active} to="/">Home</NavLink>
           <NavLink className={styles.navLink} activeClassName={styles.active} to="/about">About</NavLink>
         </div>
+        {{else}}
+        <span>Header</span>
+        {{/if}}
       </div>
     )
   }
