@@ -1,4 +1,4 @@
-# {{name}}
+# react-template
 
 ## Project setup
 ```
