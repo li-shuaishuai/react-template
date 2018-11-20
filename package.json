@@ -52,7 +52,9 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.1.1",
+    {{#if router}}
     "react-router-dom": "^4.3.1",
+    {{/if}}
     "redux": "^4.0.1"
   },
   "browserslist": [
