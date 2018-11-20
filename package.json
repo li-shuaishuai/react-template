@@ -36,7 +36,9 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.4.0",
+    {{#if redux}}
     "redux-logger": "^3.0.6",
+    {{/if}}
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
@@ -51,11 +53,15 @@
     "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    {{#if redux}}
     "react-redux": "^5.1.1",
+    {{/if}}
     {{#if router}}
     "react-router-dom": "^4.3.1",
     {{/if}}
+    {{#if redux}}
     "redux": "^4.0.1"
+    {{/if}}
   },
   "browserslist": [
     ">1%",

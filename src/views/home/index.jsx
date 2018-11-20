@@ -1,7 +1,9 @@
 import React from 'react'
+{{#if redux}}
 import { connect } from 'react-redux'
 
 import { updateTitle } from '../../actions/title'
+{{/if}}
 import * as styles from './home.scss'
 
 class Home extends React.Component {
@@ -9,14 +11,18 @@ class Home extends React.Component {
     return (
       <div className={styles.contianer}>
         <img className={styles.logo} src={require('../../assets/logo.svg')} />
-        <p onClick={() => updateTitle('欢迎使用react脚手架')} className={styles.title}>{this.props.title}</p>
+        <p {{#if redux}}onClick={() => updateTitle('欢迎使用react脚手架')} {{/if}}className={styles.title}>{this.props.title}</p>
       </div >
     )
   }
 }
 
+{{#if redux}}
 export default connect((state) => {
   return {
     title: state.title
   }
 })(Home)
+{{else}}
+export default Home
+{{/if}}
