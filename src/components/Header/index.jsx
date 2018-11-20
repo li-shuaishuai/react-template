@@ -1,5 +1,7 @@
 import React from 'react'
+{{#if router}}
 import { NavLink } from 'react-router-dom'
+{{/if}}
 import * as styles from './header.scss'
 
 export default class Header extends React.Component {
