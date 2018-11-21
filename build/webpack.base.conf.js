@@ -8,7 +8,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  entry: resolve('src/index.jsx'),
+  entry: resolve('src/index.js'),
   output: {
     path: config.build.assetsRoot,
     filename: path.join(config.build.assetsSubDirectory, 'js/[name].js'),
