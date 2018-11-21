@@ -1,2 +1,7 @@
-src/index.js
-static/
+{{#if redux}}
+src/actions
+src/reducers
+src/store
+{{/if}}
+
+templates.ignore
