@@ -20,7 +20,6 @@ class App extends React.Component {
             <Route exact path="/" component={Home}></Route>
             <Route path="/about" component={About}></Route>
           </Switch>
-          <Home/>
           <Footer />
         </React.Fragment>
       </BrowserRouter>
