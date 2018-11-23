@@ -1,5 +1,5 @@
 const path = require('path')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = require('../config')
 const NODE_ENV = process.env.NODE_ENV
 
