@@ -4,7 +4,15 @@ import { connect } from 'react-redux'
 
 import { updateTitle } from '../../actions/title'
 {{/if}}
+{{#unless scss}}
 import * as styles from './home.scss'
+{{/unless}}
+{{#unless less}}
+import * as styles from './home.less'
+{{/unless}}
+{{#unless stylus}}
+import * as styles from './home.styl'
+{{/unless}}
 
 class Home extends React.Component {
   render() {
