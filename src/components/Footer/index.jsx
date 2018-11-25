@@ -1,14 +1,15 @@
 import React from 'react'
 
-{{#unless scss}}
+{{#with scss}}
 import * as styles from './footer.scss'
-{{/unless}}
-{{#unless less}}
+{{/with}}
+{{#with less}}
 import * as styles from './footer.less'
-{{/unless}}
-{{#unless stylus}}
+{{/with}}
+{{#with stylus}}
 import * as styles from './footer.styl'
-{{/unless}}
+{{/with}}
+
 export default class Footer extends React.Component {
   render() {
     return (

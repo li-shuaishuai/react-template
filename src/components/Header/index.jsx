@@ -2,15 +2,16 @@ import React from 'react'
 {{#if router}}
 import { NavLink } from 'react-router-dom'
 {{/if}}
-{{#unless scss}}
+{{#with scss}}
 import * as styles from './header.scss'
-{{/unless}}
-{{#unless less}}
+{{/with}}
+{{#with less}}
 import * as styles from './header.less'
-{{/unless}}
-{{#unless stylus}}
+{{/with}}
+{{#with stylus}}
 import * as styles from './header.styl'
-{{/unless}}
+{{/with}}
+
 export default class Header extends React.Component {
   render() {
     return (

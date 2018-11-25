@@ -1,14 +1,14 @@
 import React from 'react'
 
-{{#unless scss}}
+{{#with scss}}
 import * as styles from './about.scss'
-{{/unless}}
-{{#unless less}}
+{{/with}}
+{{#with less}}
 import * as styles from './about.less'
-{{/unless}}
-{{#unless stylus}}
+{{/with}}
+{{#with stylus}}
 import * as styles from './about.styl'
-{{/unless}}
+{{/with}}
 
 export default class Home extends React.Component {
   render() {
