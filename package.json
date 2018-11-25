@@ -19,6 +19,7 @@
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     {{#with less}}
+    "less": "^3.8.1",
     "less-loader": "^4.1.0",
     {{/with}}
     "mini-css-extract-plugin": "^0.4.4",
@@ -37,6 +38,7 @@
     {{/with}}
     "style-loader": "^0.23.0",
     {{#with stylus}}
+    "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     {{/with}}
     "url-loader": "^1.1.1",
