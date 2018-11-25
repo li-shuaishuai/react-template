@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.conf.js')
-const DashboardPlugin = require('webpack-dashboard/plugin')
 const config = require('../config')
 
 module.exports = merge(baseWebpackConfig, {
@@ -18,7 +17,6 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.tpl.html'
     })
