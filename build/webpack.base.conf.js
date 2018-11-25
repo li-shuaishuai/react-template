@@ -11,7 +11,7 @@ function resolve(dir) {
 
 // common function to get style loaders
 const getStyleLoaders = () => {
-  const preProcessor = {{#with scss}}'sass-loader'{{/with}}{{#with less}}'less-loader'{{/with}}{{#with scss}}'stylus-loader'{{/with}}
+  const preProcessor = {{#with scss}}'sass-loader'{{/with}}{{#with less}}'less-loader'{{/with}}{{#with stylus}}'stylus-loader'{{/with}}
   const loaders = [
     NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
