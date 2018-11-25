@@ -2,9 +2,44 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = require('../config')
 const NODE_ENV = process.env.NODE_ENV
+// style files regexes
+const preRegex = {{#with scss}}/\.(scss|sass)$/{{/with}}{{#with less}}/\.(less)$/{{/with}}{{#with stylus}}/\.(styl)$/{{/with}}
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
+}
+
+// common function to get style loaders
+const getStyleLoaders = () => {
+  const preProcessor = {{#with scss}}'sass-loader'{{/with}}{{#with less}}'less-loader'{{/with}}{{#with scss}}'stylus-loader'{{/with}}
+  const loaders = [
+    NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        localIdentName: '[name]_[local]-[hash:base64:8]',
+      }
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        ident: 'postcss',
+        plugins: () => [
+          require('postcss-flexbugs-fixes'),
+          require('postcss-preset-env')({
+            autoprefixer: {
+              flexbox: 'no-2009',
+            },
+            stage: 3,
+          })
+        ]
+      }
+    },
+    preProcessor
+  ]
+
+  return loaders
 }
 
 module.exports = {
@@ -30,33 +65,8 @@ module.exports = {
         use: [NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.scss$/,
-        use: [
-          NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              localIdentName: "[name]_[local]-[hash:base64:8]",
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: () => [
-                require('postcss-flexbugs-fixes'),
-                require('postcss-preset-env')({
-                  autoprefixer: {
-                    flexbox: 'no-2009',
-                  },
-                  stage: 3,
-                })
-              ]
-            }
-          },
-          { loader: "sass-loader" }
-        ],
+        test: preRegex,
+        use: getStyleLoaders(),
         exclude: /node_modules/
       },
       {

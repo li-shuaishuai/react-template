@@ -1,0 +1,20 @@
+.contianer
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  padding: 40px;
+  .title
+    font-size: 26px;
+    color: #fff;
+    {{#if redux}}
+    cursor: pointer
+    {{/if}}
+  .logo
+    width: 100px;
+    animation: App-logo-spin infinite 20s linear
+  @keyframes App-logo-spin
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }

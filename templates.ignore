@@ -3,5 +3,14 @@ src/actions
 src/reducers
 src/store
 {{/unless}}
+{{#unless scss}}
+.scss
+{{/unless}}
+{{#unless less}}
+.less
+{{/unless}}
+{{#unless stylus}}
+.styl
+{{/unless}}
 
 templates.ignore
