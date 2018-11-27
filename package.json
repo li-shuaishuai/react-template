@@ -58,11 +58,5 @@
     "react-redux": "^5.1.1",
     "redux": "^4.0.1"
     {{/if}}
-  },
-  "browserslist": [
-    ">1%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
