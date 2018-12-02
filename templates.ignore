@@ -3,9 +3,9 @@ src/actions
 src/reducers
 src/store
 {{/unless}}
-{{#with router}}
+{{#unless router}}
 src/views/about
-{{/with}}
+{{/unless}}
 {{#unless scss}}
 .scss
 {{/unless}}
