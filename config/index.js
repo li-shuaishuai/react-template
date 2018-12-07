@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) IcePoint
+ * https://www.lishuaishuai.com
+ * https://github.com/li-shuaishuai/react-cli
+ */
+
 var path = require('path')
 const NODE_ENV = process.env.NODE_ENV
 
