@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) IcePoint
+ * https://www.lishuaishuai.com
+ * https://github.com/li-shuaishuai/react-cli
+ */
+
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = require('../config')

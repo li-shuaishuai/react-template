@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) IcePoint
+ * https://www.lishuaishuai.com
+ * https://github.com/li-shuaishuai/react-cli
+ */
+
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
