@@ -80,7 +80,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:8].[ext]'
+          name: `${config.build.assetsSubDirectory}img/[name].[hash:8].[ext]`
         }
       },
       {
@@ -88,7 +88,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: `${config.build.assetsSubDirectory}/media/[name].[hash:8].[ext]`
         }
       },
       {
@@ -96,7 +96,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/fonts/[name].[hash:8].[ext]'
+          name: `${config.build.assetsSubDirectory}/fonts/[name].[hash:8].[ext]`
         }
       }
     ]
