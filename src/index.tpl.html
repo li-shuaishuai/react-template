@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{name}}</title>
+  {{#if mobile}}
+  <script>!function(c,d){var g=document.documentElement;var b=c.devicePixelRatio||1;var f=1/b;var a=document.querySelector('meta[name="viewport"]');g.setAttribute("data-dpr",b);a.setAttribute("content","initial-scale="+f+", maximum-scale="+f+", minimum-scale="+f+", user-scalable=no");function e(){var h=g.clientWidth/10;g.style.fontSize=h+"px"}e();c.addEventListener("resize",e);c.addEventListener("pageshow",function(h){if(h.persisted){e()}})}(window,document);</script>
+  {{/if}}
 </head>
 
 <body>
