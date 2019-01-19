@@ -20,7 +20,14 @@ module.exports = {
     mode: NODE_ENV,
     sourceMap: 'source-map',
     port: 3001,
-    autoOpenBrowser: true, // 自动打开浏览器
-    overlay: true // 在浏览器上全屏显示编译的errors或warnings
+    autoOpenBrowser: true,
+    overlay: true,
+    historyApiFallback: true,
+    noInfo: true
+  },
+  common: {
+    {{#if mobile}}
+    remUnit: 75 // 设计稿的宽度 在css及预编译语言中px自动转换为rem (https://www.npmjs.com/package/postcss-adaptive)
+    {{/if}}
   }
 }

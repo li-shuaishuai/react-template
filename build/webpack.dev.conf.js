@@ -19,7 +19,9 @@ module.exports = merge(baseWebpackConfig, {
     open: config.dev.autoOpenBrowser,
     inline: true,
     hot: true,
-    overlay: config.dev.overlay
+    overlay: config.dev.overlay,
+    historyApiFallback: config.dev.historyApiFallback,
+    noInfo: config.dev.noInfo
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

@@ -26,10 +26,11 @@
     "less-loader": "^4.1.0",
     {{/with}}
     "mini-css-extract-plugin": "^0.4.4",
-    {{# with scss}}
+    {{#with scss}}
     "node-sass": "^4.9.3",
     {{/with}}
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-adaptive": "^0.5.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.4.0",
