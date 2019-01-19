@@ -13,6 +13,9 @@
     "@babel/plugin-proposal-function-bind": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    {{#if mobile}}
+    "@ice-point/webpack-server-qrcode": "^1.0.0",
+    {{/if}}
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^0.1.19",
@@ -30,7 +33,9 @@
     "node-sass": "^4.9.3",
     {{/with}}
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    {{#if mobile}}
     "postcss-adaptive": "^0.5.0",
+    {{/if}}
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.4.0",

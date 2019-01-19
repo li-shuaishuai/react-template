@@ -7,6 +7,9 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+{{#if mobile}}
+const WebpackServerQRcode = require('@ice-point/webpack-server-qrcode')
+{{/if}}
 const baseWebpackConfig = require('./webpack.base.conf.js')
 const config = require('../config')
 
@@ -15,6 +18,7 @@ module.exports = merge(baseWebpackConfig, {
   devtool: config.dev.sourceMap,
   devServer: {
     contentBase: config.build.assetsRoot,
+    host: config.dev.host,
     port: config.dev.port,
     open: config.dev.autoOpenBrowser,
     inline: true,
@@ -24,6 +28,9 @@ module.exports = merge(baseWebpackConfig, {
     noInfo: config.dev.noInfo
   },
   plugins: [
+    {{#if mobile}}
+    new WebpackServerQRcode(),
+    {{/if}}
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.tpl.html'
