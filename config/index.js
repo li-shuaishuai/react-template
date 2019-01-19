@@ -19,6 +19,7 @@ module.exports = {
   dev: {
     mode: NODE_ENV,
     sourceMap: 'source-map',
+    host: '0.0.0.0',
     port: 3001,
     autoOpenBrowser: true,
     overlay: true,
