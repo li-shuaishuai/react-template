@@ -38,12 +38,6 @@ const getStyleLoaders = () => {
 
 module.exports = {
   entry: resolve('src/index.js'),
-  output: {
-    path: config.build.assetsRoot,
-    filename: path.join(config.build.assetsSubDirectory, 'js/[name].js'),
-    chunkFilename: path.join(config.build.assetsSubDirectory, 'js/[name].chunk.js'),
-    publicPath: config.build.assetsPublicPath
-  },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },

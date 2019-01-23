@@ -4,6 +4,7 @@
  * https://github.com/li-shuaishuai/react-cli
  */
 
+const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -16,6 +17,12 @@ const config = require('../config')
 module.exports = merge(baseWebpackConfig, {
   mode: config.dev.mode,
   devtool: config.dev.sourceMap,
+  output: {
+    path: config.dev.assetsRoot,
+    filename: path.join(config.dev.assetsSubDirectory, 'js/[name].js'),
+    chunkFilename: path.join(config.dev.assetsSubDirectory, 'js/[name].chunk.js'),
+    publicPath: config.dev.assetsPublicPath
+  },
   devServer: {
     contentBase: config.build.assetsRoot,
     host: config.dev.host,
