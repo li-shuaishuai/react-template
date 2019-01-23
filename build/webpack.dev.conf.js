@@ -24,7 +24,7 @@ module.exports = merge(baseWebpackConfig, {
     publicPath: config.dev.assetsPublicPath
   },
   devServer: {
-    contentBase: config.build.assetsRoot,
+    contentBase: config.dev.assetsRoot,
     host: config.dev.host,
     port: config.dev.port,
     open: config.dev.autoOpenBrowser,
