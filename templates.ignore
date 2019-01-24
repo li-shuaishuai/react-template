@@ -15,9 +15,5 @@ src/views/about
 {{#unless stylus}}
 .styl
 {{/unless}}
-{{#unless mobile}}
-common/styles/px2rem
-{{/unless}}
-
 
 templates.ignore
