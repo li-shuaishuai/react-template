@@ -28,5 +28,10 @@ module.exports = {
     overlay: true,
     historyApiFallback: true,
     noInfo: true
+  }{{#if mobile}},
+  common: {
+    remUnit: 75, // 设计稿宽度
+    autoRem: true
   }
+  {{/if}}
 }

@@ -14,7 +14,7 @@ module.exports = {
     }){{#if mobile}},
     require('postcss-adaptive')({
       remUnit: config.common.remUnit,
-      autoRem: true
+      autoRem: config.common.autoRem
     })
     {{/if}}
   ]
