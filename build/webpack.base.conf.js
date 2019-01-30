@@ -62,7 +62,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: `${config.build.assetsSubDirectory}img/[name].[hash:8].[ext]`
+          name: `${config.build.assetsSubDirectory}/img/[name].[hash:8].[ext]`
         }
       },
       {
