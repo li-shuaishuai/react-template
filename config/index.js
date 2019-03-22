@@ -12,7 +12,7 @@ module.exports = {
     mode: NODE_ENV,
     sourceMap: false,
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: './',
     assetsPublicPath: '/',
     bundleAnalyzerReport: process.env.analyz
   },
@@ -20,7 +20,7 @@ module.exports = {
     mode: NODE_ENV,
     sourceMap: 'source-map',
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: './',
     assetsPublicPath: '/',
     host: '0.0.0.0',
     port: 3001,

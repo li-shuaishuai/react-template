@@ -12,25 +12,25 @@ const NODE_ENV = process.env.NODE_ENV
 const preRegex = {{#with scss}}/\.(scss|sass)$/{{/with}}{{#with less}}/\.(less)$/{{/with}}{{#with stylus}}/\.(styl)$/{{/with}}
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir)
+  return path.resolve(__dirname, '..', dir)
 }
 
 // common function to get style loaders
 const getStyleLoaders = () => {
   const preProcessor = {{#with scss}}'sass-loader'{{/with}}{{#with less}}'less-loader'{{/with}}{{#with stylus}}'stylus-loader'{{/with}}
   const loaders = [
-    NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+    NODE_ENV === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
     {
-      loader: 'css-loader',
+      loader: require.resolve('css-loader'),
       options: {
         modules: true,
         localIdentName: '[name]_[local]-[hash:base64:8]',
       }
     },
     {
-      loader: 'postcss-loader'
+      loader: require.resolve('postcss-loader')
     },
-    preProcessor
+    require.resolve(preProcessor)
   ]
 
   return loaders
@@ -39,18 +39,19 @@ const getStyleLoaders = () => {
 module.exports = {
   entry: resolve('src/index.js'),
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [resolve('node_modules')]
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
+        loader: require.resolve('babel-loader'),
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: [NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [NODE_ENV === 'development' ? require.resolve('style-loader') : MiniCssExtractPlugin.loader, require.resolve('css-loader')],
       },
       {
         test: preRegex,
@@ -59,26 +60,26 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: require.resolve('url-loader'),
         options: {
           limit: 10000,
-          name: `${config.build.assetsSubDirectory}/img/[name].[hash:8].[ext]`
+          name: path.join(config.build.assetsSubDirectory, 'imgs/[name].[hash:8].[ext]')
         }
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: require.resolve('url-loader'),
         options: {
           limit: 10000,
-          name: `${config.build.assetsSubDirectory}/media/[name].[hash:8].[ext]`
+          name: path.join(config.build.assetsSubDirectory, 'media/[name].[hash:8].[ext]')
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: require.resolve('url-loader'),
         options: {
           limit: 10000,
-          name: `${config.build.assetsSubDirectory}/fonts/[name].[hash:8].[ext]`
+          name: path.join(config.build.assetsSubDirectory, 'fonts/[name].[hash:8].[ext]')
         }
       }
     ]
