@@ -47,6 +47,9 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: require.resolve('babel-loader'),
+        options: {
+          cacheDirectory: true
+        },
         exclude: /node_modules/
       },
       {
