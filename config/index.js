@@ -22,7 +22,9 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: './',
     assetsPublicPath: '/',
+    {{#if mobile}}
     host: '0.0.0.0',
+    {{/if}}
     port: 3001,
     autoOpenBrowser: true,
     overlay: true,
