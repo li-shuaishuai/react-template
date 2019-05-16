@@ -34,6 +34,11 @@ module.exports = {
   common: {
     remUnit: 75, // 设计稿宽度
     autoRem: true
-  }
-  {{/if}}
+  }{{/if}}{{#with pwa}},
+  workboxOption: {
+    // 这些选项帮助快速启用 ServiceWorkers
+    // 不允许遗留任何“旧的” ServiceWorkers
+    clientsClaim: true,
+    skipWaiting: true
+  }{{/with}}
 }
