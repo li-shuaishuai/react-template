@@ -5,12 +5,14 @@
  */
 
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+{{#with pwa}}
+const { GenerateSW } = require('workbox-webpack-plugin')
+{{/with}}
 const baseWebpackConfig = require('./webpack.base.conf.js')
 const config = require('../config')
 
@@ -40,11 +42,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, '../')
     }),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, '../static'),
-      to: 'static',
-      ignore: ['.*']
-    }]),
     new MiniCssExtractPlugin({
       filename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash:8].css'),
       chunkFilename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash:8].chunk.css'),
@@ -57,7 +54,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         collapseWhitespace: true, // 去除空格
         removeEmptyAttributes: true // 去除空属性
       }
-    })
+    }){{#with pwa}},
+    new GenerateSW(config.workboxOption)
+    {{/with}}
   ]
 })
 
