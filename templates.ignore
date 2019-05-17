@@ -15,5 +15,8 @@ src/views/about
 {{#unless stylus}}
 .styl
 {{/unless}}
+{{#unless pwa}}
+static/
+{{/unless}}
 
 templates.ignore
