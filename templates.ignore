@@ -16,7 +16,7 @@ src/views/about
 .styl
 {{/unless}}
 {{#unless pwa}}
-static/
+static/icons/
 {{/unless}}
 
 templates.ignore
