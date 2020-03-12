@@ -6,7 +6,7 @@
 
 const path = require('path')
 const merge = require('webpack-merge')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -39,9 +39,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     runtimeChunk: true
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: path.join(__dirname, '../')
-    }),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash:8].css'),
       chunkFilename: path.join(config.build.assetsSubDirectory, 'css/[name].[contenthash:8].chunk.css'),

@@ -24,9 +24,11 @@ const getStyleLoaders = () => {
     {
       loader: require.resolve('css-loader'),
       options: {
-        modules: true,
-        localIdentName: '[name]_[local]-[hash:base64:8]',
-      }
+        modules: {
+          mode: 'local',
+          localIdentName: '[name]_[local]-[hash:base64:8]',
+        }
+      },
     },
     {
       loader: require.resolve('postcss-loader')
@@ -66,6 +68,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: require.resolve('url-loader'),
         options: {
+          esModule: false,
           limit: 10000,
           name: path.join(config.build.assetsSubDirectory, 'imgs/[name].[hash:8].[ext]')
         }
@@ -74,6 +77,7 @@ module.exports = {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: require.resolve('url-loader'),
         options: {
+          esModule: false,
           limit: 10000,
           name: path.join(config.build.assetsSubDirectory, 'media/[name].[hash:8].[ext]')
         }
@@ -82,6 +86,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: require.resolve('url-loader'),
         options: {
+          esModule: false,
           limit: 10000,
           name: path.join(config.build.assetsSubDirectory, 'fonts/[name].[hash:8].[ext]')
         }
