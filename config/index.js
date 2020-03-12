@@ -27,7 +27,7 @@ module.exports = {
     autoOpenBrowser: true,
     overlay: true,
     historyApiFallback: true,
-    noInfo: true
+    noInfo: false
   }{{#if mobile}},
   common: {
     remUnit: 75, // 设计稿宽度
