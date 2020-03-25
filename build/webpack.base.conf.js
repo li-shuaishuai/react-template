@@ -27,11 +27,11 @@ const getStyleLoaders = () => {
         modules: {
           mode: 'local',
           localIdentName: '[name]_[local]-[hash:base64:8]',
-        }
+        },
       },
     },
     {
-      loader: require.resolve('postcss-loader')
+      loader: require.resolve('postcss-loader'),
     },
     require.resolve(preProcessor)
   ]
@@ -43,7 +43,7 @@ module.exports = {
   entry: resolve('src/index.js'),
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    modules: [resolve('node_modules')]
+    modules: [resolve('node_modules')],
   },
   module: {
     rules: [
@@ -70,8 +70,8 @@ module.exports = {
         options: {
           esModule: false,
           limit: 10000,
-          name: path.join(config.build.assetsSubDirectory, 'imgs/[name].[hash:8].[ext]')
-        }
+          name: path.join(config.build.assetsSubDirectory, 'imgs/[name].[hash:8].[ext]'),
+        },
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -79,8 +79,8 @@ module.exports = {
         options: {
           esModule: false,
           limit: 10000,
-          name: path.join(config.build.assetsSubDirectory, 'media/[name].[hash:8].[ext]')
-        }
+          name: path.join(config.build.assetsSubDirectory, 'media/[name].[hash:8].[ext]'),
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -88,8 +88,8 @@ module.exports = {
         options: {
           esModule: false,
           limit: 10000,
-          name: path.join(config.build.assetsSubDirectory, 'fonts/[name].[hash:8].[ext]')
-        }
+          name: path.join(config.build.assetsSubDirectory, 'fonts/[name].[hash:8].[ext]'),
+        },
       }
     ]
   },
@@ -97,7 +97,7 @@ module.exports = {
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../static'),
       to: 'static',
-      ignore: ['.*']
+      ignore: ['.*'],
     }]),
   ]
 }

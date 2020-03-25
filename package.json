@@ -20,6 +20,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "file-loader": "^5.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     {{#with less}}
     "less": "^3.8.1",

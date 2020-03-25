@@ -23,7 +23,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     path: config.build.assetsRoot,
     filename: path.join(config.build.assetsSubDirectory, 'js/[name].[chunkhash:8].js'),
     chunkFilename: path.join(config.build.assetsSubDirectory, 'js/[name].[chunkhash:8].chunk.js'),
-    publicPath: config.build.assetsPublicPath
+    publicPath: config.build.assetsPublicPath,
   },
   optimization: {
     minimize: true,
@@ -32,11 +32,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         common: {
           test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
           name: 'vendor',
-          chunks: 'all'
-        }
-      }
+          chunks: 'all',
+        },
+      },
     },
-    runtimeChunk: true
+    runtimeChunk: true,
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -50,10 +50,10 @@ const webpackConfig = merge(baseWebpackConfig, {
       minify: {
         removeComments: true, // 移除注释
         collapseWhitespace: true, // 去除空格
-        removeEmptyAttributes: true // 去除空属性
+        removeEmptyAttributes: true, // 去除空属性
       }
     }){{#with pwa}},
-    new GenerateSW(config.workboxOption)
+    new GenerateSW(config.workboxOption),
     {{/with}}
   ]
 })

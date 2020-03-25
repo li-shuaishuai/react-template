@@ -8,6 +8,7 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin")
 {{#if mobile}}
 const WebpackServerQRcode = require('@ice-point/webpack-server-qrcode')
 {{/if}}
@@ -21,7 +22,7 @@ module.exports = merge(baseWebpackConfig, {
     path: config.dev.assetsRoot,
     filename: path.join(config.dev.assetsSubDirectory, 'js/[name].js'),
     chunkFilename: path.join(config.dev.assetsSubDirectory, 'js/[name].chunk.js'),
-    publicPath: config.dev.assetsPublicPath
+    publicPath: config.dev.assetsPublicPath,
   },
   devServer: {
     contentBase: config.dev.assetsRoot,
@@ -32,7 +33,7 @@ module.exports = merge(baseWebpackConfig, {
     hot: true,
     overlay: config.dev.overlay,
     historyApiFallback: config.dev.historyApiFallback,
-    noInfo: config.dev.noInfo
+    noInfo: config.dev.noInfo,
   },
   plugins: [
     {{#if mobile}}
@@ -40,7 +41,12 @@ module.exports = merge(baseWebpackConfig, {
     {{/if}}
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.tpl.html'
-    })
-  ]
+      template: './src/index.tpl.html',
+    }),
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [`You application is running here ${config.dev.devServer.https ? 'https' : 'http'}://${config.dev.devServer.host}:${config.dev.devServer.port}`],
+      }
+    }),
+  ],
 })
