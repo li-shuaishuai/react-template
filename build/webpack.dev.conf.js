@@ -26,14 +26,10 @@ module.exports = merge(baseWebpackConfig, {
   },
   devServer: {
     contentBase: config.dev.assetsRoot,
-    host: config.dev.host,
-    port: config.dev.port,
-    open: config.dev.autoOpenBrowser,
+    ...config.dev.devServer,
     inline: true,
     hot: true,
-    overlay: config.dev.overlay,
-    historyApiFallback: config.dev.historyApiFallback,
-    noInfo: config.dev.noInfo,
+    quiet: true,
   },
   plugins: [
     {{#if mobile}}
