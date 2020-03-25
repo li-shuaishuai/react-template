@@ -29,7 +29,7 @@ module.exports = {
       overlay: true,
       historyApiFallback: true,
       noInfo: false,
-      Proxy: {},
+      proxy: {},
     }
   }{{#if mobile}},
   common: {
