@@ -25,7 +25,7 @@ module.exports = {
     devServer: {
       host: {{#if mobile}}'0.0.0.0'{{else}}'localhost'{{/if}},
       port: 3001,
-      autoOpenBrowser: true,
+      open: true,
       overlay: true,
       historyApiFallback: true,
       noInfo: false,
